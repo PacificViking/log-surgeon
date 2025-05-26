@@ -91,12 +91,10 @@ tasks:
   ystdlib:
     internal: true
     run: "once"
+    deps:
+      - "Catch2"
+      - "outcome"
     cmds:
-      - task: "utils:cmake:install-deps-and-generate-settings"
-        vars:
-          CMAKE_SETTINGS_DIR: "{{.G_DEPS_CMAKE_SETTINGS_DIR}}"
-          DEP_TASK: "ystdlib-all-parallel"
-
       - task: "utils:cmake:install-remote-tar"
         vars:
           CMAKE_PACKAGE_NAME: "ystdlib"
@@ -108,17 +106,11 @@ tasks:
             - "-C {{.G_DEPS_CMAKE_SETTINGS_DIR}}/{{.G_OUTCOME_LIB_NAME}}.cmake"
             - "-C {{.G_DEPS_CMAKE_SETTINGS_DIR}}/{{.G_QUICKCPPLIB_LIB_NAME}}.cmake"
 
-  ystdlib-all-parallel:
-    internal: true
-    deps:
-      - "Catch2"
-      - "install-outcome"
-
-  install-outcome:
+  outcome:
     internal: true
     run: "once"
     deps:
-      - "install-quickcpplib"
+      - "quickcpplib"
     cmds:
       - task: "utils:cmake:install-remote-tar"
         vars:
@@ -133,7 +125,7 @@ tasks:
             - "-DCMAKE_POLICY_DEFAULT_CMP0074=NEW"
           WORK_DIR: "{{.G_DEPS_DIR}}"
 
-  install-quickcpplib:
+  quickcpplib:
     internal: true
     run: "once"
     cmds:
