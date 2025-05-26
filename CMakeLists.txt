@@ -51,6 +51,9 @@ message(STATUS "Found fmt ${fmt_VERSION}.")
 find_package(Microsoft.GSL 4.0.0 REQUIRED)
 message(STATUS "Found Microsoft.GSL ${Microsoft.GSL_VERSION}.")
 
+find_package(ystdlib REQUIRED)
+message(STATUS "Found ystdlib ${ystdlib_VERSION}.")
+
 if(log_surgeon_ENABLE_TESTS)
     find_package(Catch2 3.8.1 REQUIRED)
     message(STATUS "Found Catch2 ${Catch2_VERSION}.")
@@ -124,6 +127,7 @@ target_link_libraries(log_surgeon
     PUBLIC
     fmt::fmt
     Microsoft.GSL::GSL
+    ystdlib::ystdlib
     )
 
 target_include_directories(log_surgeon

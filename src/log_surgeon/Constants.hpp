@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <utility>
 
+#include <ystdlib/error_handling/ErrorCode.hpp>
+
 namespace log_surgeon {
 constexpr uint32_t cUnicodeMax = 0x10'FFFF;
 constexpr uint32_t cSizeOfUnicode = cUnicodeMax + 1;
@@ -22,6 +24,8 @@ enum class ErrorCode {
     NotInit,
     Truncated,
 };
+
+using YErrorCode = ystdlib::error_handling::ErrorCode<ErrorCode>;
 
 /**
  * Enum for token IDs.
