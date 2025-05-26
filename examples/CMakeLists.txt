@@ -14,7 +14,6 @@ if(log-surgeon-examples_IS_TOP_LEVEL)
     include("${CMAKE_SOURCE_DIR}/../build/deps/cmake-settings/all.cmake" OPTIONAL)
 endif()
 
-set(log_surgeon_ROOT "/home/john/docs/yscope/log-surgeon/build/build_install")
 find_package(log_surgeon REQUIRED)
 message(STATUS "Found log_surgeon ${log_surgeon_VERSION}.")
 

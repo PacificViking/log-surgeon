@@ -90,6 +90,7 @@ Requirements:
 * [fmt] >= 8.0.1
 * [GSL] >= 4.0.0
 * [Task] >= 3.38
+* [ystdlib-cpp]
 
 To build and install the project to `~/.local`:
 
@@ -107,6 +108,12 @@ To build the debug version:
 
 ```shell
 task build:debug
+```
+
+To build the example:
+
+```shell
+task build:examples-release
 ```
 
 ## Documentation and examples
@@ -204,3 +211,4 @@ The following are issues we're aware of and working on:
 [GSL]: https://github.com/microsoft/GSL
 [lint]: https://github.com/y-scope/log-surgeon/blob/main/.github/workflows/lint.yml
 [Task]: https://taskfile.dev/
+[ystdlib-cpp]: https://github.com/y-scope/ystdlib-cpp
